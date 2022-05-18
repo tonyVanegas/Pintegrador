@@ -1,0 +1,7 @@
+.edit-form-data > i.fa-edit {
+    color:green;
+}
+
+.delete-form-data > i.fa-ban {
+    color: red;
+}
