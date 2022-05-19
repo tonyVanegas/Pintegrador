@@ -1,50 +1,39 @@
 @extends('layouts.admin')
 
 @section('titulo')
+@can('crear-rol')
 <span>Roles</span>
+@endcan
 
-<a href="" class="btn btn-primary btn-circle" data-toggle="modal" data-target="#createMdl">
-    <i class="fas fa-plus"></i>
-</a>
+<a class="btn btn-warning" href="{{ route('roles.create') }}">Nuevo</a> 
 @endsection
 
 @section('contenido')
 
-
-
-
-
 <div class="card">
     <div class="card-body">
-        <table id="dt-persons" class="table table-striped table-bordered dts">
+        <table id="dt-roles" class="table table-striped table-bordered dts">
             <thead>
                 <tr>
-                    <th class="text-center">Id</th>
-                    <th class="text-center">Tipo de Documento</th>
-                    <th class="text-center">Numero de Documento</th>
-                    <th class="text-center">Nombres</th>
-                    <th class="text-center">Primer Apellido</th>
-                    <th class="text-center">Segundo Apellido</th>
+                    <th class="text-center">Rol</th>
                     <th class="text-center">Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($personas as $persona)
-                <tr class="text-center">
-                    <td>{{$persona->id }}</td>
-                    <td>{{$persona->tipo_documento}}</td>
-                    <td>{{$persona->numero_documento}}</td>
-                    <td>{{$persona->nombres}}</td>
-                    <td>{{$persona->primer_apellido}}</td>
-                    <td>{{$persona->segundo_apellido}}</td>
+                @foreach ($roles as $role)
+                <tr>
+                    <td>{{ $role->name }}</td>
                     <td>
-                        <a href="" class="edit-form-data" data-toggle="modal" data-target="#editMdl"
-                            onclick="editPersona({{$persona}})">
-                            <i class="far fa-edit"></i>
-                        </a>
-                        <a href="" class="delete-form-data" data-toggle="modal" data-target="#deleteMdl">
-                            <i class="far fa-trash-alt"></i>
-                        </a>
+                        @can('editar-rol')
+                        <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}">Editar</a>
+                        @endcan
+
+                        @can('borrar-rol')
+                        {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy',
+                        $role->id],'style'=>'display:inline']) !!}
+                        {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
+                        {!! Form::close() !!}
+                        @endcan
                     </td>
                 </tr>
                 @endforeach

@@ -29,45 +29,58 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-            aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+            aria-controls="collapseOne">
             <i class="fas fa-fw fa-cog"></i>
             <span>Administración</span>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Listado del personal:</h6>
-                <a class="collapse-item" href="{{route('personas.index')}}">
-                    <i class="fas fa-address-book"></i> Personal
-                </a>
                 <h6 class="collapse-header">Usuarios y Roles:</h6>
                 <a class="collapse-item" href="{{route('usuarios.index')}}">
                     <i class="fas fa-users fa-fw"></i> Usuarios
                 </a>
-                <a class="collapse-item" href="#">
+                <a class="collapse-item" href="{{route('roles.index')}}">
                     <i class="fas fa-id-card fa-fw"></i> Roles
                 </a>
-                <h6 class="collapse-header">Crear:</h6>
-                <a class="collapse-item" href="{{route('docentes.index')}}"></i> Docente
-                </a>
-                <a class="collapse-item" href="{{route('acudientes.index')}}">
-                    <i class="fas fa-user-chart"></i> Acudiente
-                </a>
-                <a class="collapse-item" href="{{route('estudiantes.index')}}">
-                    <i class="fas fa-user-chart"></i> Estudiante
-                </a>
-                <a class="collapse-item" href="{{route('cursos.index')}}">
-                    <i class="fas fa-archway"></i> Cursos
-                </a>
-                <a class="collapse-item" href="{{route('materias.index')}}">
-                    <i class="fas fa-book"></i> Materias
-                </a>
-                <a class="collapse-item" href="#">
-                    <i class="fas fa-user-chart"></i> Estado del Usuario
+                <h6 class="collapse-header">Personal:</h6>
+                <a class="collapse-item" href="{{route('personas.index')}}">
+                    <i class="fas fa-address-book"></i> Listado
                 </a>
             </div>
+        </div>
     </li>
 
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Gestión Humana 
+    </div>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+            aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Personal</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Roles:</h6>
+                <a class="collapse-item" href="{{route('usuarios.index')}}">
+                    <i class="fas fa-users fa-fw"></i> Docente
+                </a>
+                <a class="collapse-item" href="{{route('roles.index')}}">
+                    <i class="fas fa-id-card fa-fw"></i> Acudiente
+                </a>
+                <a class="collapse-item" href="{{route('personas.index')}}">
+                    <i class="fas fa-address-book"></i> Estudiante
+                </a>
+            </div>
+        </div>
+    </li>
     <!-- Divider -->
     <hr class="sidebar-divider">
 
@@ -78,24 +91,47 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-            aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true"
+            aria-controls="collapseThree">
             <i class="fas fa-fw fa-cog"></i>
-            <span>Asignar</span>
+            <span>Crear</span>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Nuevo:</h6>
+                <a class="collapse-item" href="{{route('cursos.index')}}">
+                    <i class="fas fa-archway"></i> Curso
+                </a>
+                <a class="collapse-item" href="{{route('materias.index')}}">
+                    <i class="fas fa-book"></i> Materia
+                </a>
+                <a class="collapse-item" href="#">
+                    <i class="fas fa-user-chart"></i> Estado Estudiante
+                </a>
+            </div>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true"
+            aria-controls="collapseFour">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Cargar</span>
+        </a>
+        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Asignar clase:</h6>
                 <a class="collapse-item" href="#">
                     Docente
                 </a>
                 <a class="collapse-item" href="#">
                     Materia
                 </a>
+                <h6 class="collapse-header">generar carga:</h6>
                 <a class="collapse-item" href="#">
-                    Carga Docente
+                     Docente
                 </a>
                 <a class="collapse-item" href="#">
-                    Carga Estudiante
+                     Estudiante
                 </a>
             </div>
         </div>

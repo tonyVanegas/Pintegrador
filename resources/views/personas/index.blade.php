@@ -7,11 +7,6 @@
     <i class="fas fa-user-plus"></i>
 </a>
 
-<span>Estudiante</span>
-<a href="" class="btn btn-primary btn-circle" data-toggle="modal" data-target="#createMdl">
-    <i class="fas fa-user-plus"></i>
-</a>
-
 @endsection
 
 @section('contenido')

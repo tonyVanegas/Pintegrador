@@ -11,5 +11,5 @@ class Usuario extends Model
     use HasFactory;
 
     public $timestamps = false; 
-    protected $fillable = ['nombre','email','rol','password'];
+    protected $fillable = ['nombre','email','password'];
 }

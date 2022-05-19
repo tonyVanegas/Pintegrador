@@ -1,19 +1,9 @@
 @extends('layouts.admin')
 
 @section('titulo')
-<span>Nuevo Usuario</span>
+<span>Usuario</span>
 
-<a href="" class="btn btn-primary btn-circle" data-toggle="modal" data-target="#createMdl">
-    <i class="fas fa-plus"></i>
-</a>
-
-
-<span>Asignar rol</span>
-
-<a href="" class="btn btn-primary btn-circle" data-toggle="modal" data-target="#createMdl">
-    <i class="fas fa-plus"></i>
-</a>
-
+<a class="btn btn-warning" href="{{ route('usuarios.create') }}">Nuevo</a>
 @endsection
 
 @section('contenido')
@@ -25,27 +15,30 @@
                 <tr>
                     <th class="text-center">Id</th>
                     <th class="text-center">Nombre</th>
-                    <th class="text-center">Email</th>
+                    <th class="text-center">Correo Electronico</th>
                     <th class="text-center">Rol</th>
-                    <th class="text-center">Password</th>
                     <th class="text-center">Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($usuarios as $usuario)
                 <tr class="text-center">
-                    <td>{{$usuario->id }}</td>
-                    <td>{{$usuario->nombre}}</td>
+                    <td>{{$usuario->id}}</td>
+                    <td>{{$usuario->name}}</td>
                     <td>{{$usuario->email}}</td>
-                    <td>{{$usuario->rol}}</td>
-                    <td>{{$usuario->password}}</td>
                     <td>
-                        <a href="" class="edit-form-data" data-toggle="modal" data-target="#editMdl" onclick="#">
-                            <i class="far fa-edit"></i>
-                        </a>
-                        <a href="" class="delete-form-data" data-toggle="modal" data-target="#deleteMdl">
-                            <i class="far fa-trash-alt"></i>
-                        </a>
+                        @if(!empty($usuario->getRoleNames()))
+                        @foreach($usuario->getRoleNames() as $rolNombre)
+                        <h5><span class="badge badge-dark">{{$rolNombre}}</span></h5>
+                        @endforeach
+                        @endif
+                    </td>
+                    <td>
+                        <a class="btn btn-info" href="{{ route('usuarios.edit',$usuario->id) }}">Editar</a>
+                        {!! Form::open(['method' => 'DELETE','route' => ['usuarios.destroy',
+                        $usuario->id],'style'=>'display:inline']) !!}
+                        {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
+                        {!! Form::close() !!}
                     </td>
                 </tr>
                 @endforeach

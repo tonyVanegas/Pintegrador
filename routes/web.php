@@ -1,6 +1,7 @@
 <?php
 
 
+
 use App\Http\Controllers\NotificacionController;
 use App\Http\Controllers\ProgresoController;
 use App\Http\Controllers\AsistenciaController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\EstudianteController;
 use App\Http\Controllers\DocenteController;
 use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\CursoController;
+use App\Http\Controllers\RolController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\PersonaController;
 use App\Http\Controllers\DashaController;
@@ -30,9 +32,10 @@ Route::get('/dashboard-doc', [DashdController::class,'index'])->name('dashd');
 Route::get('/dashboard', [DashaController::class,'index'])->name('dasha'); 
 
 
-
+Route::group(['middleware' => ['auth']], function(){
 Route::resource('/personas', PersonaController::class);
 Route::resource('/usuarios', UsuarioController::class);
+Route::resource('/roles', RolController::class);
 Route::resource('/cursos', CursoController::class);
 Route::resource('/materias', MateriaController::class);
 Route::resource('/acudientes', AcudienteController::class);
@@ -44,7 +47,7 @@ Route::resource('/actividades', ActividadController::class);
 Route::resource('/asistencias', AsistenciaController::class);
 Route::resource('/progreso', ProgresoController::class);
 Route::resource('/notificaciones', NotificacionController::class);
-
+});
 
 
 
@@ -57,3 +60,7 @@ Route::resource('/notificaciones', NotificacionController::class);
 
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
