@@ -1,4 +1,4 @@
-@extends('layout.admin')
+@extends('layou.admin')
 
 @section('titulo')
 <span>Actividades</span>

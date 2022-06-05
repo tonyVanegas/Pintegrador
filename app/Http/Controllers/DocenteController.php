@@ -34,9 +34,14 @@ class DocenteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DocenteFormRequest $request)
     {
-        //
+        Docente::create($request->all());
+
+        alert()->success ('Docente', 'guardada correctamente');
+
+        return redirect()->route('docentes.index');
+
     }
 
     /**

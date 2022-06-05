@@ -12,6 +12,8 @@
 
 @section('contenido')
 
+@include('cursos.modals.create')
+
 <div class="card">
     <div class="card-body">
         <table id="dt-cursos" class="table table-striped table-bordered dts">
@@ -22,6 +24,7 @@
                     <th class="text-center">Año lectivo</th>
                     <th class="text-center">Consecutivo</th>
                     <th class="text-center">Estado</th>
+                    <th class="text-center">Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,7 +34,7 @@
                     <td>{{$curso->grado}}</td>
                     <td>{{$curso->anio_lectivo}}</td>
                     <td>{{$curso->consecutivo}}</td>
-                    <td>{{$curso-estado}}</td>
+                    <td>{{$curso->estado}}</td>
                     <td>
                         <a href="" class="edit-form-data" data-toggle="modal" data-target="#editMdl"
                             onclick="#">
@@ -60,3 +63,4 @@
 <script src="{{asset('/libs/datatables/dataTables.bootstrap4.min.js')}}"></script>
 
 @endpush
+

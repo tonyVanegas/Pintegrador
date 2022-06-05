@@ -12,19 +12,22 @@
 
 @section('contenido')
 
+@include('materias.modals.create')
+
 <div class="card">
     <div class="card-body">
         <table id="dt-materias" class="table table-striped table-bordered dts">
             <thead>
                 <tr>
                     <th class="text-center">Id</th>
-                    <th class="text-center">nombre</th>
+                    <th class="text-center">Nombres</th>
+                    <th class="text-center">Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($materias as $materia)
                 <tr class="text-center">
-                    <td>{{$materia->id }}</td>
+                    <td>{{$materia->id}}</td>
                     <td>{{$materia->nombre}}</td>
                     <td>
                         <a href="" class="edit-form-data" data-toggle="modal" data-target="#editMdl"

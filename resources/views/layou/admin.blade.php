@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,6 +22,7 @@
 
     <link rel="stylesheet" href="{{asset('/css/main.css')}}">
 </head>
+
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -51,7 +53,8 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Anthony Vanegas</span>
+                                <span
+                                    class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -61,15 +64,10 @@
                                     Perfil
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal"
-                                    onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Salir
                                 </a>
-                                <form id="logout-form" action="#" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
                             </div>
                         </li>
 
@@ -111,23 +109,28 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="#">Logout</a>
+                    <a class="btn btn-primary" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="{{asset('libs/jquery/jquery.min.js')}}"></script>
-    <script src="{{asset('libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    <!-- Custom scripts for all pages-->
-    <script src="{{asset('libs/sbadmin/js/sb-admin-2.min.js')}}"></script>
- 
-    @stack('scripts')
+        <!-- Bootstrap core JavaScript-->
+        <script src="{{asset('libs/jquery/jquery.min.js')}}"></script>
+        <script src="{{asset('libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="{{asset('libs/sbadmin/js/sb-admin-2.min.js')}}"></script>
 
-    <script src="{{asset('js/main.js')}}"></script>
+        @stack('scripts')
 
-   @include('sweetalert::alert')
+        <script src="{{asset('js/main.js')}}"></script>
+
+        @include('sweetalert::alert')
 
 </body>
 

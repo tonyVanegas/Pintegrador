@@ -1,11 +1,9 @@
 @extends('layouts.admin')
 
 @section('titulo')
-<span>Estudiante</span>
+<span>Asiganar Estudiante</span>
 
-<a href="" class="btn btn-primary btn-circle" data-toggle="modal" data-target="#createMdl">
-    <i class="fas fa-user-plus"></i>
-</a>
+<a class="btn btn-warning" href="{{ route('asignar_estudiante.create') }}">Nuevo</a>
 
 @endsection
 
@@ -21,20 +19,18 @@
                     <th class="text-center">Estudiante</th>
                     <th class="text-center">Curso</th>
                     <th class="text-center">Materias</th>
+                    <th class="text-center">Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($asiganaciones_estudiantes as $asignacion_estudiante)
+                @foreach($asignaciones_estudiantes as $asignacion_estudiante)
                 <tr class="text-center">
-                    <td>{{$asignacion_estudiante->id }}</td>
-                    <td>{{$asignacion_estudiante->id_estudiante}}</td>
-                    <td>{{$asignacion_estudiante->id_curso}}</td>
-                    <td>{{$asignacion_estudiante->id_materias}}</td>
+                    <td>{{$asignacion_estudiante->id}}</td>
+                    <td>{{$asignacion_estudiante->estudiantes->nombres}}</td>
+                    <td>{{$asignacion_estudiante->cursos->grado}}-{{$asignacion_estudiante->cursos->anio_lectivo}}-{{$asignacion_estudiante->cursos->consecutivo}}</td>
+                    <td>{{$asignacion_estudiante->materias->nombre}}</td>
                     <td>
-                        <a href="" class="edit-form-data" data-toggle="modal" data-target="#editMdl"
-                            onclick="#">
-                            <i class="far fa-edit"></i>
-                        </a>
+                    <a class="btn btn-info" href="{{ route('asignar_estudiante.edit',$asignacion_estudiante->id) }}">Editar</a>
                         <a href="" class="delete-form-data" data-toggle="modal" data-target="#deleteMdl">
                             <i class="fas fa-ban"></i>
                         </a>

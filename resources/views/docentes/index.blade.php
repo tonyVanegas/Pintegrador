@@ -11,6 +11,8 @@
 
 @section('contenido')
 
+@include('docentes.modals.create')
+
 
 <div class="card">
     <div class="card-body">

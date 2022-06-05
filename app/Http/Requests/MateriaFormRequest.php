@@ -24,7 +24,8 @@ class MateriaFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => ['required', 'string', 'max:50'],
+            'id' => ['required','numeric','max:50'],
+            'nombre' => ['required','string','unique:materias,nombre','max:50'],
         ];
     }
 

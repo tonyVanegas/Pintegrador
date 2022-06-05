@@ -12,6 +12,7 @@
 @section('contenido')
 
 
+<p>Progreso</p>
 
 @endsection
 

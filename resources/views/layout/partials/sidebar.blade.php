@@ -1,20 +1,24 @@
 <!-- Sidebar -->
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
+    <br><br>
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fab fa-twitter"></i>
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashd') }}">
+        <div class="sidebar-brand-icon rotate-n-0">
+            <img src="{{ asset ('/img/santa-fe.png') }}" alt="imagen-logo" style="height: 250px; width: 300px;">
         </div>
-        <div class="sidebar-brand-text mx-3">Mi Agenda <sup>App</sup></div>
     </a>
+    <br>
+    <div class="sidebar-brand-text mx-3">
+        <p style="color:#FACA02";>Jardin infantil<sup>Santa Fe</sup></p></div>
 
-    <!-- Divider -->
+
+    <!-- Divider --> 
+
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('dashd') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Inicio</span></a>
     </li>
@@ -24,7 +28,7 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Configuración
+        Gestion Academica 
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
@@ -36,10 +40,10 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{route('asistencias.index')}}">
+                <a class="collapse-item" href="{{route('personas.index')}}">
                     <i class="fas fa-users fa-fw"></i> Asistencias 
                 </a>
-                <a class="collapse-item" href="{{route('actividades.index')}}">
+                <a class="collapse-item" href="{{route('blogs.index')}}">
                     <i class="fas fa-id-card fa-fw"></i> Actividades
                 </a>
                 <a class="collapse-item" href="{{route('progreso.index')}}">

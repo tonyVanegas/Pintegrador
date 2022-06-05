@@ -3,9 +3,7 @@
 @section('titulo')
 <span>Asiganar Docente</span>
 
-<a href="" class="btn btn-primary btn-circle" data-toggle="modal" data-target="#createMdl">
-    <i class="fas fa-user-plus"></i>
-</a>
+<a class="btn btn-warning" href="{{ route('asignar_docente.create') }}">Nuevo</a>
 
 @endsection
 
@@ -20,20 +18,19 @@
                     <th class="text-center">Id</th>
                     <th class="text-center">Docente</th>
                     <th class="text-center">Curso</th>
+                    <th class="text-center">Materias</th>
+                    <th class="text-center">Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($asignaciones_docentes as $asignacion_docente)
                 <tr class="text-center">
                     <td>{{$asignacion_docente->id }}</td>
-                    <td>{{$asignacion_docente->id_docente}}</td>
-                    <td>{{$asignacion_docente->id_curso}}</td>
-                    <td>{{$asignacion_docente->id_materias}}</td>
+                    <td>{{$asignacion_docente->usuarios->name}}</td>
+                    <td>{{$asignacion_docente->cursos->grado}}-{{$asignacion_docente->cursos->anio_lectivo}}-{{$asignacion_docente->cursos->consecutivo}}</td>
+                    <td>{{$asignacion_docente->materias->nombre}}</td>
                     <td>
-                        <a href="" class="edit-form-data" data-toggle="modal" data-target="#editMdl"
-                            onclick="#">
-                            <i class="far fa-edit"></i>
-                        </a>
+                    <a class="btn btn-info" href="{{ route('asignar_docente.edit',$asignacion_docente->id) }}">Editar</a>
                         <a href="" class="delete-form-data" data-toggle="modal" data-target="#deleteMdl">
                             <i class="fas fa-ban"></i>
                         </a>

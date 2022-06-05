@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Curso;
+use App\Http\Requests\CursoFormRequest;
 use Illuminate\Http\Request;
+use App\Models\Curso;
+use Illuminate\Support\Facades\Redirect;
+
 
 class CursoController extends Controller
 {
@@ -34,9 +37,14 @@ class CursoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CursoFormRequest $request)
     {
-        //
+        Curso::create($request->all());
+
+        alert()->success ('Curso', 'guardada correctamente');
+
+        return redirect()->route('cursos.index');
+
     }
 
     /**

@@ -2,19 +2,33 @@
 
 namespace App\Http\Controllers;
 
-//use App\Models\Actividad;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Actividad;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Arr;
 
-class ActividadController extends Controller
+class BlogController extends Controller
 {
+    function __construct()
+    {
+         $this->middleware('permission:ver-blog|crear-blog|editar-blog|borrar-blog')->only('index');
+         $this->middleware('permission:crear-blog', ['only' => ['create','store']]);
+         $this->middleware('permission:editar-blog', ['only' => ['edit','update']]);
+         $this->middleware('permission:borrar-blog', ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('Actividades.index');
+    {       
+         //Con paginación
+         $actividades = Actividad::get(); 
+         return view('actividades.index',compact('actividades'));
+         //al usar esta paginacion, recordar poner en el el index.blade.php este codigo  {!! $blogs->links() !!}    
     }
 
     /**
@@ -35,7 +49,7 @@ class ActividadController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      //
     }
 
     /**
@@ -55,9 +69,9 @@ class ActividadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Blog $blog)
     {
-        //
+       //
     }
 
     /**
@@ -67,9 +81,10 @@ class ActividadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Blog $blog)
     {
         //
+        
     }
 
     /**
@@ -78,7 +93,7 @@ class ActividadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Blog $blog)
     {
         //
     }

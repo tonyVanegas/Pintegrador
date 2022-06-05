@@ -3,7 +3,7 @@
 @section('contenido')
 <section class="section">
     <div class="section-header">
-        <h3 class="page__heading">Generar  Nuevo Usuario</h3>
+        <h3 class="page__heading">Generar Nuevo Usuario</h3>
     </div>
     <div class="section-body">
         <div class="row">
@@ -33,6 +33,24 @@
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
+                                    <label for="direccion">Dirección</label>
+                                    {!! Form::text('direccion', null, array('class' => 'form-control')) !!}
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <label for="celular">Celular</label>
+                                    {!! Form::text('celular', null, array('class' => 'form-control')) !!}
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <label for="telefono_fijo">Telefono Fijo</label>
+                                    {!! Form::text('telefono_fijo', null, array('class' => 'form-control')) !!}
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
                                     <label for="email">E-mail</label>
                                     {!! Form::text('email', null, array('class' => 'form-control')) !!}
                                 </div>
@@ -53,6 +71,12 @@
                                 <div class="form-group">
                                     <label for="">Roles</label>
                                     {!! Form::select('roles[]', $roles,[], array('class' => 'form-control')) !!}
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <label for="name">Estado</label>
+                                    {!! Form::text('estado', null, array('class' => 'form-control')) !!}
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">

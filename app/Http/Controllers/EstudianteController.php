@@ -35,9 +35,14 @@ class EstudianteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EstudianteFormRequest $request)
     {
-        //
+        Estudiante::create($request->all());
+
+        alert()->success ('Estudiante', 'guardada correctamente');
+
+        return redirect()->route('Estudiantes.index');
+
     }
 
     /**

@@ -10,6 +10,11 @@ class Usuario extends Model
 {
     use HasFactory;
 
+    protected $table = "users";
     public $timestamps = false; 
     protected $fillable = ['nombre','email','password'];
+
+    public function asignacion_docente(){
+        return $this->hasMany('App/Models/Asignacion_Docente');
+    }
 }

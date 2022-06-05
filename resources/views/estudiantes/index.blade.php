@@ -11,6 +11,8 @@
 
 @section('contenido')
 
+@include('Estudiantes.modals.create')
+
 
 <div class="card">
     <div class="card-body">
@@ -18,24 +20,23 @@
             <thead>
                 <tr>
                     <th class="text-center">Id</th>
-                    <th class="text-center">Id Persona</th>
                     <th class="text-center">Id Acudiente</th>
-                    <th class="text-center">Rol</th>
+                    <th class="text-center">Nombres</th>
                     <th class="text-center">Genero</th>
                     <th class="text-center">Fecha de Nacimiento</th>
                     <th class="text-center">Edad</th>
                     <th class="text-center">Nombre del Padre</th>
                     <th class="text-center">Nombre de la Madre</th>
                     <th class="text-center">Estado</th>
+                    <th class="text-center">Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($estudiantes as $estudiante)
                 <tr class="text-center">
                     <td>{{$estudiante->id }}</td>
-                    <td>{{$estudiante->id_persona}}</td>
                     <td>{{$estudiante->id_acudiente}}</td>
-                    <td>{{$estudiante->id_rol}}</td>
+                    <td>{{$estudiante->nombres}}</td>
                     <td>{{$estudiante->genero}}</td>
                     <td>{{$estudiante->fecha_nacimiento}}</td>
                     <td>{{$estudiante->edad}}</td>
@@ -44,7 +45,7 @@
                     <td>{{$estudiante->estado}}</td>
                     <td>
                         <a href="" class="edit-form-data" data-toggle="modal" data-target="#editMdl"
-                            onclick="#">
+                            onclick="">
                             <i class="far fa-edit"></i>
                         </a>
                         <a href="" class="delete-form-data" data-toggle="modal" data-target="#deleteMdl">

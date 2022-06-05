@@ -1,8 +1,9 @@
 @extends('layouts.admin')
 
 @section('titulo', 'Panel-adminsistrativo')
-
+  
 @section('contenido')
+
 
 <div class="row" justify-content: center>
     <!-- Earnings (Monthly) Card Example -->

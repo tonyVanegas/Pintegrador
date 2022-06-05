@@ -29,7 +29,7 @@ class DocenteFormRequest extends FormRequest
             'celular' => ['required', 'string', 'max:50'],
             'telefono_fijo'  => ['required', 'string', 'max:50'], 
             'email' => ['required', 'string', 'max:50'],
-            'estado'  => ['required', 'string', 'max:50'], 
+            'estado'  => ['required', 'numeric', 'max:1'], 
         ];
     }
 

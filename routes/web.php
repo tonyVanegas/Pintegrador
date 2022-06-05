@@ -19,6 +19,7 @@ use App\Http\Controllers\PersonaController;
 use App\Http\Controllers\DashaController;
 use App\Http\Controllers\DashdController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -41,24 +42,15 @@ Route::resource('/materias', MateriaController::class);
 Route::resource('/acudientes', AcudienteController::class);
 Route::resource('/estudiantes', EstudianteController::class);
 Route::resource('/docentes', DocenteController::class);
-Route::resource('/asignar_docente', Asignacion_DocenteController::class);
+Route::resource('/asignar_docente', 'App\http\Controllers\Asignacion_DocenteController');
 Route::resource('/asignar_estudiante', Asignacion_EstudianteController::class);
 Route::resource('/actividades', ActividadController::class);
 Route::resource('/asistencias', AsistenciaController::class);
 Route::resource('/progreso', ProgresoController::class);
+Route::resource('/blogs', BlogController::class);
 Route::resource('/notificaciones', NotificacionController::class);
+Route::get('imprimirUsuarios','App\http\Controllers\PdfController@imprimirUsuarios')->name('imprimirUsuarios');
 });
-
-
-
-
-/* ADMINISTRACIÓN DE USUARIOS */
-
-//Route::resource('dashboard', 'App\http\Controllers\dashboardController');
-//Route::resource('personas', 'App\http\Controllers\PersonaController');
-
-
-
 
 
 Auth::routes();

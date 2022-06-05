@@ -11,6 +11,7 @@
 
 @section('contenido')
 
+@include('acudientes.modals.create')
 
 <div class="card">
     <div class="card-body">

@@ -1,15 +1,19 @@
 <!-- Sidebar -->
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
+    <br><br>
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fab fa-twitter"></i>
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashd') }}">
+        <div class="sidebar-brand-icon rotate-n-0">
+            <img src="{{ asset ('/img/santa-fe.png') }}" alt="imagen-logo" style="height: 250px; width: 300px;">
         </div>
-        <div class="sidebar-brand-text mx-3">Mi Agenda <sup>App</sup></div>
     </a>
+    <br>
+    <div class="sidebar-brand-text mx-3">
+        <p style="color:#FACA02";>Jardin infantil<sup>Santa Fe</sup></p></div>
 
-    <!-- Divider -->
+
+    <!-- Divider --> 
+
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
@@ -42,7 +46,7 @@
                 <a class="collapse-item" href="#">
                     <i class="fas fa-id-card fa-fw"></i> Progreso
                 </a>
-                <a class="collapse-item" href="{{route('cursos.index')}}">
+               <a class="collapse-item" href="{{route('blogs.index')}}">
                     <i class="fas fa-archway"></i> Actividades
                 </a>
             </div>

@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layout.admin')
 
 @section('titulo')
 <span>Personas</span>

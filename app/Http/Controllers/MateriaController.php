@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Http\Requests\MateriaFormRequest;
 use App\Models\Materia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class MateriaController extends Controller
 {
@@ -34,9 +37,14 @@ class MateriaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MateriaFormRequest $request)
     {
-        //
+        Materia::create($request->all());
+
+        alert()->success ('Materia', 'guardada correctamente');
+
+        return redirect()->route('materias.index');
+
     }
 
     /**
